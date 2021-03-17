@@ -1,0 +1,22 @@
+{
+    "name": "hakuryo/siham-ws-client",
+    "description": "A WS for SIHAM",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "KEVIN DERE",
+            "email": "kevin.dere@univ-reims.fr"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "classmap": [
+            "classes/administratif",
+            "classes/clients",
+            "classes/personnelle",
+            "classes/",
+            "traits/"
+        ]
+    }
+}
