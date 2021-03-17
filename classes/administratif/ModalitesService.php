@@ -1,8 +1,8 @@
 <?php
 
-namespace sihamWSClient\administratif;
+namespace hakuryo\sihamWSClient\administratif;
 
-use sihamWSClient\Utils;
+use hakuryo\sihamWSClient\Utils;
 use stdClass;
 
 /**

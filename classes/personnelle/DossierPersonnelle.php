@@ -1,6 +1,6 @@
 <?php
 
-namespace sihamWSClient\personnelle;
+namespace hakuryo\sihamWSClient\personnelle;
 
 use stdClass;
 

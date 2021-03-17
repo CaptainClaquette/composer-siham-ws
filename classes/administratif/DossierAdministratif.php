@@ -1,6 +1,6 @@
 <?php
 
-namespace sihamWSClient\administratif;
+namespace hakuryo\sihamWSClient\administratif;
 
 use stdClass;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace sihamWSClient\traits;
+namespace hakuryo\sihamWSClient\traits;
 
-use sihamWSClient\administratif\DossierAdministratif;
-use sihamWSClient\personnelle\ParamListAgent;
+use hakuryo\sihamWSClient\administratif\DossierAdministratif;
+use hakuryo\sihamWSClient\personnelle\ParamListAgent;
 use SoapFault;
 
 trait DossierAdministratifOperations

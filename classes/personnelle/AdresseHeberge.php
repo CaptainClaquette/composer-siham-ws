@@ -1,8 +1,8 @@
 <?php
 
-namespace sihamWSClient\personnelle;
+namespace hakuryo\sihamWSClient\personnelle;
 
-use sihamWSClient\personnelle\Adresse;
+use hakuryo\sihamWSClient\personnelle\Adresse;
 use stdClass;
 
 /**

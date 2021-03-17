@@ -1,10 +1,10 @@
 <?php
 
-namespace sihamWSClient\traits;
+namespace hakuryo\sihamWSClient\traits;
 
-use sihamWSClient\personnelle\DossierPersonnelle;
-use sihamWSClient\personnelle\ParamListAgent;
-use sihamWSClient\personnelle\ParamModifDP;
+use hakuryo\sihamWSClient\personnelle\DossierPersonnelle;
+use hakuryo\sihamWSClient\personnelle\ParamListAgent;
+use hakuryo\sihamWSClient\personnelle\ParamModifDP;
 use SoapFault;
 
 trait DossierPersonnelOperations

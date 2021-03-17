@@ -1,5 +1,5 @@
 <?php
-namespace sihamWSClient;
+namespace hakuryo\sihamWSClient;
 
 use DateTime;
 

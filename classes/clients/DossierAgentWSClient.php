@@ -1,21 +1,21 @@
 <?php
 
-namespace sihamWSClient\clients;
+namespace hakuryo\sihamWSClient\clients;
 
 use Exception;
 use InvalidArgumentException;
-use sihamWSClient\administratif\DossierAdministratif;
-use sihamWSClient\personnelle\DossierPersonnelle;
-use sihamWSClient\personnelle\ParamListAgent;
-use sihamWSClient\traits\DossierAdministratifOperations;
-use sihamWSClient\traits\DossierPersonnelOperations;
+use hakuryo\sihamWSClient\administratif\DossierAdministratif;
+use hakuryo\sihamWSClient\personnelle\DossierPersonnelle;
+use hakuryo\sihamWSClient\personnelle\ParamListAgent;
+use hakuryo\sihamWSClient\traits\DossierAdministratifOperations;
+use hakuryo\sihamWSClient\traits\DossierPersonnelOperations;
 use SoapClient;
 use SoapFault;
 use stdClass;
 
 /**
  * 
- * @package sihamWSClient\clients
+ * @package hakuryo\sihamWSClient\clients
  */
 class DossierAgentWSClient extends SoapClient
 {
