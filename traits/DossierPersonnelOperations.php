@@ -25,10 +25,10 @@ trait DossierPersonnelOperations
         }
     }
 
-    public function modifDonneesPersonnelles($request_data)
+    public function updateDonneesPersonnelles($request_data)
     {
         try {
-            $res = $this->client->ModifDonneesPersonnelles($request_data)->return->statutMAJ == '1';
+            $res = $this->ModifDonneesPersonnelles($request_data)->return->statutMAJ == '1';
             return $res;
         } catch (SoapFault $exception) {
             print_r($this->__getLastRequest());
@@ -45,7 +45,7 @@ trait DossierPersonnelOperations
         $pdp->setMatricule($matricule_siham);
         $pdp->setCodeEtablissement($this->code_etablissement);
 
-        return $this->modifDonneesPersonnelles(["ParamModifDP" => $pdp]);
+        return $this->updateDonneesPersonnelles(["ParamModifDP" => $pdp]);
     }
 
     public function set_portable_perso($new_value, $matricule_siham, $typeAction = "M"): bool
@@ -57,6 +57,6 @@ trait DossierPersonnelOperations
         $pdp->setMatricule($matricule_siham);
         $pdp->setCodeEtablissement($this->code_etablissement);
 
-        return $this->modifDonneesPersonnelles(["ParamModifDP" => $pdp]);
+        return $this->updateDonneesPersonnelles(["ParamModifDP" => $pdp]);
     }
 }
