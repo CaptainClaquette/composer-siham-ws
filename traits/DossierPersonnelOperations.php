@@ -32,7 +32,7 @@ trait DossierPersonnelOperations
             return $res;
         } catch (SoapFault $exception) {
             print_r($this->__getLastRequest());
-            var_dump($exception);
+            return false;
         }
     }
 
@@ -40,6 +40,18 @@ trait DossierPersonnelOperations
     {
         $pdp = new ParamModifDP();
         $pdp->setTypeNumero("MPE");
+        $pdp->setNumero($new_value);
+        $pdp->setTypeAction($typeAction);
+        $pdp->setMatricule($matricule_siham);
+        $pdp->setCodeEtablissement($this->code_etablissement);
+
+        return $this->updateDonneesPersonnelles(["ParamModifDP" => $pdp]);
+    }
+
+    public function set_mail_pro($new_value, $matricule_siham, $typeAction = "M"): bool
+    {
+        $pdp = new ParamModifDP();
+        $pdp->setTypeNumero("MPR");
         $pdp->setNumero($new_value);
         $pdp->setTypeAction($typeAction);
         $pdp->setMatricule($matricule_siham);
