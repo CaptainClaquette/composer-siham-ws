@@ -9,7 +9,8 @@ use stdClass;
  *
  * @author dere01
  */
-class DossierPersonnelle {
+class DossierPersonnelle
+{
 
     public $donneesPersonnelles;
     public $adresses = [];
@@ -18,7 +19,8 @@ class DossierPersonnelle {
     public $nationalites = [];
     public $numeroMails = [];
 
-    public function __construct(stdClass $recupDonneesPersonnellesResponse = null) {
+    public function __construct(stdClass $recupDonneesPersonnellesResponse = null)
+    {
         if ($recupDonneesPersonnellesResponse != null) {
             $this->donneesPersonnelles = new DonneesPersonnelles($recupDonneesPersonnellesResponse->donneesPersonnelles);
             if (property_exists($recupDonneesPersonnellesResponse, "listeAdresses"))
@@ -34,43 +36,48 @@ class DossierPersonnelle {
         }
     }
 
-    public function get_mail_perso(): NumerosMails {
+    public function get_mail_perso(): ?NumerosMails
+    {
         foreach ($this->numeroMails as $value) {
             if ($value->getCodeTypologieNumeroMail() === "MPE") {
                 return $value;
             }
         }
-        return '';
+        return null;
     }
 
-    public function get_mail_pro(): NumerosMails {
+    public function get_mail_pro(): ?NumerosMails
+    {
         foreach ($this->numeroMails as $value) {
             if ($value->getCodeTypologieNumeroMail() === "MPR") {
-                return $value->to_string();
+                return $value;
             }
         }
-        return '';
+        return null;
     }
 
-    public function get_tel_pro(): NumerosMails {
+    public function get_tel_pro(): ?NumerosMails
+    {
         foreach ($this->numeroMails as $value) {
             if ($value->getCodeTypologieNumeroMail() === "TPR") {
-                return $value->to_string();
+                return $value;
             }
         }
-        return '';
+        return null;
     }
 
-    public function get_portable_perso(): NumerosMails {
+    public function get_portable_perso(): ?NumerosMails
+    {
         foreach ($this->numeroMails as $value) {
             if ($value->getCodeTypologieNumeroMail() === "PPE") {
-                return $value->to_string();
+                return $value;
             }
         }
-        return '';
+        return null;
     }
 
-    public function has_mail_perso(): bool {
+    public function has_mail_perso(): bool
+    {
         foreach ($this->numeroMails as $numeroMail) {
             if ($numeroMail->getCodeTypologieNumeroMail() === "MPE") {
                 return true;
@@ -78,8 +85,9 @@ class DossierPersonnelle {
         }
         return false;
     }
-    
-    public function has_portable_perso(): bool {
+
+    public function has_portable_perso(): bool
+    {
         foreach ($this->numeroMails as $numeroMail) {
             if ($numeroMail->getCodeTypologieNumeroMail() === "PPE") {
                 return true;
@@ -88,7 +96,8 @@ class DossierPersonnelle {
         return false;
     }
 
-    private function init_attr($recupDonneesPersonnellesResponse, $fromAttr, $toAttr, $className) {
+    private function init_attr($recupDonneesPersonnellesResponse, $fromAttr, $toAttr, $className)
+    {
         if (is_array($recupDonneesPersonnellesResponse->$fromAttr)) {
             foreach ($recupDonneesPersonnellesResponse->$fromAttr as $adresse) {
                 array_push($this->$toAttr, new $className($adresse));
@@ -98,18 +107,21 @@ class DossierPersonnelle {
         }
     }
 
-    public function __get($name) {
+    public function __get($name)
+    {
         if (method_exists($this, ($method = 'get_' . $name))) {
             return $this->$method();
         }
         return;
     }
 
-    public function get_donneesPersonnelles(): DonneesPersonnelles {
+    public function get_donneesPersonnelles(): DonneesPersonnelles
+    {
         return $this->donneesPersonnelles;
     }
 
-    public function set_mail_perso($mail) {
+    public function set_mail_perso($mail)
+    {
         $this->get_mail_perso()->setNumeroMail($mail);
     }
 
